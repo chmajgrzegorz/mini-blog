@@ -13,8 +13,10 @@ public class User {
     private String email;
     private String password;
 
-    @Embedded //dorzuca pola auditEntity
-    private AuditEntity audit = new AuditEntity(); //trzeba stworzyc jeszcze nowy obiekt
+    @Embedded
+    private AuditEntity audit = new AuditEntity();
+
+    //====================================Get,Set,Const====================================//
 
     public User(String username, String email, String password, AuditEntity audit) {
         this.username = username;
