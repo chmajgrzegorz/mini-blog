@@ -43,7 +43,7 @@ public class UserSessionService {
     }
 
     //====================================Get,Set,Const====================================//
-    
+
     public boolean isLogged() {
         return logged;
     }
