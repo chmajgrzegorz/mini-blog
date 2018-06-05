@@ -93,4 +93,13 @@ public class Post {
     public void setTags(Set<Tag> tags) {
         this.tags = tags;
     }
+
+    public void addComment(Comment comment) {
+        comments.add(comment);
+    }
+
+    public void removeComment(Comment comment){
+        comments.remove(comment);
+        comment.setPost(this);
+    }
 }
