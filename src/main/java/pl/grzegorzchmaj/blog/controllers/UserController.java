@@ -51,10 +51,11 @@ public class UserController {
         return "register";
     }
 
+    @PostMapping("/login")
     public String loginUser(@ModelAttribute @Valid LoginForm loginForm, BindingResult bindingResult, Model model){
         boolean logged = userSessionService.loginUser(loginForm.getUsername(), loginForm.getPassword());
         if(!logged){
-            bindingResult.reject("username", null, "Uzytkownik nie istnieje");
+            bindingResult.rejectValue("userName", null,"Uzytkownik nie istnieje.");
         }
         if(bindingResult.hasErrors()){
             model.addAttribute("loggedUser", logged);
@@ -68,4 +69,6 @@ public class UserController {
         model.addAttribute("loginForm", new LoginForm());
         return "login";
     }
+
+
 }

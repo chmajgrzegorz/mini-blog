@@ -33,6 +33,9 @@ public class Post {
     //====================================Get,Set,Const====================================//
 
 
+    public Post() {
+    }
+
     public Post(String title, String content) {
         this.title = title;
         this.content = content;
