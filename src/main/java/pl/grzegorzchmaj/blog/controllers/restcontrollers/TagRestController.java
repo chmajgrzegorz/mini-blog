@@ -1,4 +1,4 @@
-package pl.grzegorzchmaj.blog.controllers;
+package pl.grzegorzchmaj.blog.controllers.restcontrollers;
 
 
 import org.modelmapper.ModelMapper;
@@ -17,14 +17,14 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-public class TagController {
+public class TagRestController {
 
     private TagRepository tagRepository;
     private PostRepository postRepository;
     private ModelMapper modelMapper;
 
     @Autowired
-    public TagController(TagRepository tagRepository, PostRepository postRepository, ModelMapper modelMapper) {
+    public TagRestController(TagRepository tagRepository, PostRepository postRepository, ModelMapper modelMapper) {
         this.tagRepository = tagRepository;
         this.postRepository = postRepository;
         this.modelMapper = modelMapper;
@@ -32,13 +32,13 @@ public class TagController {
 
 
     @PostMapping("/tag")
-    public ResponseEntity<TagDTO> createTag(@RequestParam String tagName){
-        Tag tag = new Tag();
-        tag.setTagName(tagName);
-        tagRepository.save(tag);
+        public ResponseEntity<TagDTO> createTag(@RequestParam String tagName){
+            Tag tag = new Tag();
+            tag.setTagName(tagName);
+            tagRepository.save(tag);
 
-        TagDTO tagDto = modelMapper.map(tag, TagDTO.class);
-        return ResponseEntity.ok().body(tagDto);
+            TagDTO tagDto = modelMapper.map(tag, TagDTO.class);
+            return ResponseEntity.ok().body(tagDto);
 
     }
 

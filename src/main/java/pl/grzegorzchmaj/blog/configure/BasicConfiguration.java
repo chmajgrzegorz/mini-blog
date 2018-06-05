@@ -23,5 +23,6 @@ public class BasicConfiguration {
                 .addMapping(tag -> tag.getAudit().getAdded(), TagDTO::setCreated);
 
         return modelMapper;
+
     }
 }
